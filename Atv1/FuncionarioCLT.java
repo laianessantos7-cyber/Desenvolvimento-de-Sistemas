@@ -1,0 +1,15 @@
+public class FuncionarioCLT extends Funcionario implements Pagamento {
+
+    public FuncionarioCLT(String nome, String cpf, double salario) {
+        super(nome, cpf, salario);
+    }
+
+    @Override
+    public double calcularPagamento() {
+        return getSalario();
+    }
+
+    public double calcularPagamento(double bonus) {
+        return getSalario() + bonus;
+    }
+}
