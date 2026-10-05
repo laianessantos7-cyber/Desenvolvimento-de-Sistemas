@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -54,8 +53,20 @@ public class Manipulacao {
 
                         FileWriter writer = new FileWriter("arquivo.txt");
 
-                        writer.write("Olá, este é o conteúdo inicial\n");
-                        writer.write("Linha 2 do arquivo\n");
+                        System.out.println("\nDigite o conteúdo do arquivo.");
+                        System.out.println("Digite 'fim' para terminar:");
+
+                        String texto;
+
+                        do {
+                            texto = sc.nextLine();
+
+                            if (!texto.equalsIgnoreCase("fim")) {
+                                writer.write(texto);
+                                writer.write("\n");
+                            }
+
+                        } while (!texto.equalsIgnoreCase("fim"));
 
                         writer.close();
 
@@ -96,8 +107,20 @@ public class Manipulacao {
 
                         FileWriter fw = new FileWriter("arquivo.txt");
 
-                        fw.write("Conteúdo Alterado\n");
-                        fw.write("Nova informação no arquivo");
+                        System.out.println("\nDigite o novo conteúdo do arquivo.");
+                        System.out.println("Digite 'fim' para terminar:");
+
+                        String texto;
+
+                        do {
+                            texto = sc.nextLine();
+
+                            if (!texto.equalsIgnoreCase("fim")) {
+                                fw.write(texto);
+                                fw.write("\n");
+                            }
+
+                        } while (!texto.equalsIgnoreCase("fim"));
 
                         fw.close();
 
