@@ -1,19 +1,23 @@
-import java.util.InputMismatchException;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Ex03 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        
+
         try{
-            System.out.println("Informe um numero inteiro: ");
-            int numero=sc.nextInt();
-            System.out.println("Você digitou: "+numero);
-        } catch(InputMismatchException e){
-            System.out.println("ERRO: Você deve digitar um numero inteiro");
+            File arquivo = new File("exemple.txt");
+            Scanner sc= new Scanner(arquivo);
+            while(sc.hasNextLine()){
+                String linha=sc.nextLine();
+                System.out.println(linha);
+            }
+            sc.close();
+        }catch(FileNotFoundException e){
+            System.out.println("Arquivo não encontrado!");
+            e.printStackTrace();
         }
-
-        sc.close();
-
     }
     
 }

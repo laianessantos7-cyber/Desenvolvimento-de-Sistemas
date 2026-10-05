@@ -1,14 +1,20 @@
-public class Ex02{
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Ex02 {
     public static void main(String[] args) {
-        int [] numeros={10,20,30};
         try{
-            System.out.println(numeros[5]);
-        }catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("ERRO: índice fora do limite.");
+            FileWriter escritor = new FileWriter("exemplo.text", true);
+            escritor.write("Primeira linha \n");
+            escritor.write("Segunda linha \n");
+            escritor.write("Terceira linha \n");
+
+            escritor.close();
+            System.out.println("Escrita concluida.");
+        }catch(IOException e){
+            System.out.println("Erro ao escrever no arquivo.");
+            e.printStackTrace();
         }
-        finally{
-            System.err.println("Fim do Programa.");
-        }
-        
     }
+    
 }

@@ -1,16 +1,16 @@
-import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Ex04 {
     public static void main(String[] args) {
-        try(Scanner sc=new Scanner(System.in)){
-            System.out.println("Digite o nome: ");
-            String nome=sc.nextLine();
-            if(nome.trim().isEmpty()){
-                throw new Exception("O campo não pode ser vázio.");
-            }
-            System.out.println("O nome digitado: "+nome);
-        } catch(Exception e){
-            System.out.println("ERRO: "+e.getMessage());
+        try{
+            FileWriter fw =new FileWriter("dado.txt");
+            fw.write("primeira linha\n");
+            fw.write("segunda linha\n");
+            fw.close();
+            System.out.println("Escrita concluida");
+        }catch(IOException e){
+            e.printStackTrace();
         }
     }
     
